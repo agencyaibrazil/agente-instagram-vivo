@@ -15,49 +15,51 @@ fi
 
 HORA_UTC=$(date -u +%H:%M)
 HOJE_UTC=$(date -u +%Y-%m-%d)
-echo "Hora atual (UTC): $HORA_UTC"
+DIA_SEMANA=$(date -u +%u)   # 1=segunda 2=terca 3=quarta 4=quinta 5=sexta 6=sabado 7=domingo
+echo "Hora atual (UTC): $HORA_UTC | Dia da semana (UTC, 1=seg..7=dom): $DIA_SEMANA"
 
-# Corte de duplicidade: inicio da JANELA DE HOJE (nao uma janela rolante de
-# N horas, nem "desde a meia-noite"). Motivo: uma publicacao atrasada de um
-# dia anterior NAO pode contar como "ja publicado hoje" e bloquear a janela
-# de hoje — isso ja aconteceu de verdade em 2026-08-07 e bloqueou o
-# carrossel do dia por engano. Ancorar o "--since" no inicio da propria
-# janela (10:30 UTC pra posts, 21:30 UTC pra carrosseis) resolve os dois
-# problemas ao mesmo tempo: ignora publicacoes de outros horarios/dias, e
-# ainda evita duplicar se o agendador rodar mais de uma vez dentro da mesma
-# janela.
+# Apenas UMA publicacao por dia, sempre as 21:30 UTC (18:30 horario de
+# Brasilia), alternando o tipo pelo dia da semana:
+#   segunda(1) / quarta(3) / sexta(5) -> carrossel
+#   terca(2)   / quinta(4) / sabado(6) -> post
+#   domingo(7) -> nada
 #
-# As janelas comecam EXATAMENTE no horario alvo (nunca disparam antes) e se
-# estendem por 2h pra frente. Motivo da largura: dados reais mostraram que o
-# cron nativo "*/10 * * * *" do GitHub so tickou de fato ~3-4 vezes em 7h
-# (nao ~42 vezes como o "a cada 10min" prometeria) — entao uma janela curta
-# (~40min) corre risco real de nao pegar nenhum tick em algum dia e o
-# agendador simplesmente nao rodar. 2h da folga suficiente pros intervalos
-# reais observados entre ticks (~1h30-2h), sem deixar a publicacao atrasar
-# indefinidamente.
+# Janela util: 21:30-23:29 UTC (2h de tolerancia, mesmo motivo de sempre:
+# o cron nativo do GitHub nao ticka de fato a cada 10min, entao uma janela
+# curta corre risco real de nao pegar nenhum tick).
+#
+# Corte de duplicidade: com uma janela de 2h, mais de uma execucao do
+# agendador pode cair dentro da mesma janela (ja aconteceu: duas execucoes
+# na mesma noite). Sem checar, isso publicaria dois itens diferentes da
+# fila no mesmo dia (nao o mesmo arquivo repetido, mas dois itens em vez de
+# um). O corte aqui e so "ja publicou o tipo de hoje? entao nao publica de
+# novo" — ancorado no inicio da janela de hoje (nao numa janela rolante de
+# N horas), a mesma logica que ja corrigiu o bug de duplicidade anterior.
 
-# Janela dos posts: alvo 10:30 UTC (07:30 horario de Brasilia). Janela util:
-# 10:30-12:29 UTC.
-if [[ "$HORA_UTC" > "10:29" && "$HORA_UTC" < "12:30" ]]; then
-  JA_PUBLICOU=$(git log --since="${HOJE_UTC}T10:30:00" --grep="Post publicado automaticamente" --oneline)
-  if [ -z "$JA_PUBLICOU" ]; then
-    echo "Dentro da janela dos posts. Disparando postar-posts.yml..."
-    gh workflow run postar-posts.yml --ref main
-  else
-    echo "Ja publicou um post na janela de hoje. Nada a fazer."
-  fi
-fi
-
-# Janela dos carrosseis: alvo 21:30 UTC (18:30 horario de Brasilia). Janela
-# util: 21:30-23:29 UTC (fica dentro do mesmo dia UTC, nao cruza meia-noite).
 if [[ "$HORA_UTC" > "21:29" && "$HORA_UTC" < "23:30" ]]; then
-  JA_PUBLICOU=$(git log --since="${HOJE_UTC}T21:30:00" --grep="Carrossel publicado automaticamente" --oneline)
-  if [ -z "$JA_PUBLICOU" ]; then
-    echo "Dentro da janela dos carrosseis. Disparando postar-carrosseis.yml..."
-    gh workflow run postar-carrosseis.yml --ref main
-  else
-    echo "Ja publicou um carrossel na janela de hoje. Nada a fazer."
-  fi
+  case "$DIA_SEMANA" in
+    1|3|5)
+      JA_PUBLICOU=$(git log --since="${HOJE_UTC}T21:30:00" --grep="Carrossel publicado automaticamente" --oneline)
+      if [ -z "$JA_PUBLICOU" ]; then
+        echo "Dia de carrossel (seg/qua/sex), dentro da janela. Disparando postar-carrosseis.yml..."
+        gh workflow run postar-carrosseis.yml --ref main
+      else
+        echo "Ja publicou o carrossel de hoje. Nada a fazer."
+      fi
+      ;;
+    2|4|6)
+      JA_PUBLICOU=$(git log --since="${HOJE_UTC}T21:30:00" --grep="Post publicado automaticamente" --oneline)
+      if [ -z "$JA_PUBLICOU" ]; then
+        echo "Dia de post (ter/qui/sab), dentro da janela. Disparando postar-posts.yml..."
+        gh workflow run postar-posts.yml --ref main
+      else
+        echo "Ja publicou o post de hoje. Nada a fazer."
+      fi
+      ;;
+    7)
+      echo "Domingo. Sem publicacao programada."
+      ;;
+  esac
 fi
 
 echo "Verificacao concluida."
