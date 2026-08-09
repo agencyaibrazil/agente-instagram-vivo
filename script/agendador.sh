@@ -28,13 +28,17 @@ echo "Hora atual (UTC): $HORA_UTC"
 # janela.
 #
 # As janelas comecam EXATAMENTE no horario alvo (nunca disparam antes) e se
-# estendem por ~40min pra frente, dando ao agendador (que roda a cada
-# 10min, mas cujos ticks reais o GitHub pode atrasar ou pular) varias
-# chances de pegar o horario certo sem nunca publicar adiantado.
+# estendem por 2h pra frente. Motivo da largura: dados reais mostraram que o
+# cron nativo "*/10 * * * *" do GitHub so tickou de fato ~3-4 vezes em 7h
+# (nao ~42 vezes como o "a cada 10min" prometeria) — entao uma janela curta
+# (~40min) corre risco real de nao pegar nenhum tick em algum dia e o
+# agendador simplesmente nao rodar. 2h da folga suficiente pros intervalos
+# reais observados entre ticks (~1h30-2h), sem deixar a publicacao atrasar
+# indefinidamente.
 
 # Janela dos posts: alvo 10:30 UTC (07:30 horario de Brasilia). Janela util:
-# 10:30-11:09 UTC.
-if [[ "$HORA_UTC" > "10:29" && "$HORA_UTC" < "11:10" ]]; then
+# 10:30-12:29 UTC.
+if [[ "$HORA_UTC" > "10:29" && "$HORA_UTC" < "12:30" ]]; then
   JA_PUBLICOU=$(git log --since="${HOJE_UTC}T10:30:00" --grep="Post publicado automaticamente" --oneline)
   if [ -z "$JA_PUBLICOU" ]; then
     echo "Dentro da janela dos posts. Disparando postar-posts.yml..."
@@ -45,8 +49,8 @@ if [[ "$HORA_UTC" > "10:29" && "$HORA_UTC" < "11:10" ]]; then
 fi
 
 # Janela dos carrosseis: alvo 21:30 UTC (18:30 horario de Brasilia). Janela
-# util: 21:30-22:09 UTC.
-if [[ "$HORA_UTC" > "21:29" && "$HORA_UTC" < "22:10" ]]; then
+# util: 21:30-23:29 UTC (fica dentro do mesmo dia UTC, nao cruza meia-noite).
+if [[ "$HORA_UTC" > "21:29" && "$HORA_UTC" < "23:30" ]]; then
   JA_PUBLICOU=$(git log --since="${HOJE_UTC}T21:30:00" --grep="Carrossel publicado automaticamente" --oneline)
   if [ -z "$JA_PUBLICOU" ]; then
     echo "Dentro da janela dos carrosseis. Disparando postar-carrosseis.yml..."
