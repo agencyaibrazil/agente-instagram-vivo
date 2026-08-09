@@ -1,4 +1,4 @@
-Antes de implementar um agente de IA, responde essas 4 perguntas — elas dizem mais sobre o seu momento do que qualquer ferramenta.
+Antes de implementar um agente de IA, responde essas 4 perguntas. Elas dizem mais sobre o seu momento do que qualquer ferramenta.
 
 Arrasta pro lado e faz o checklist rápido. Respondeu sim pras 4? Você está mais pronto do que imagina.
 

@@ -1,4 +1,4 @@
-"Meu agente lê meus documentos" é a frase mais repetida — e uma das menos verificadas — quando alguém vende IA pra empresa.
+"Meu agente lê meus documentos" é a frase mais repetida. E uma das menos verificadas. Quando alguém vende IA pra empresa.
 
 Arrasta pro lado pra entender o que realmente acontece por trás dessa frase, o erro mais comum, e como testar em 30 segundos se está funcionando de verdade no seu caso.
 

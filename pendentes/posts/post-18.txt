@@ -1,8 +1,8 @@
 Ter vários agentes bons, cada um fazendo sua parte, não garante nada se ninguém decide a ordem entre eles.
 
-Orquestração é essa lógica invisível — decide qual agente entra em ação, quando, e o que fazer com o resultado de cada etapa antes de passar pra próxima.
+Orquestração é essa lógica invisível. Decide qual agente entra em ação, quando, e o que fazer com o resultado de cada etapa antes de passar pra próxima.
 
-Sem isso, múltiplos agentes bons viram uma bagunça coordenada por ninguém — cada um fazendo sua parte, sem ninguém juntando as peças no fim.
+Sem isso, múltiplos agentes bons viram uma bagunça coordenada por ninguém. Cada um fazendo sua parte, sem ninguém juntando as peças no fim.
 
 Salva esse post se você está pensando em ir além de um agente só.
 

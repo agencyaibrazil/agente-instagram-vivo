@@ -1,4 +1,4 @@
-Um agente tentando fazer tudo sozinho tende a ser mediano em cada etapa — não bom em nenhuma.
+Um agente tentando fazer tudo sozinho tende a ser mediano em cada etapa. Não bom em nenhuma.
 
 Arrasta pro lado pra entender quando vale a pena dividir o trabalho entre agentes especialistas, e quando isso é só complexidade desnecessária pro seu caso.
 

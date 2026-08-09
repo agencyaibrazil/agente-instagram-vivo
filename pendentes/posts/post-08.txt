@@ -1,6 +1,6 @@
-"Minha empresa está pronta pra um agente de IA?" é a pergunta certa — só que a maioria começa pelo lugar errado.
+"Minha empresa está pronta pra um agente de IA?" é a pergunta certa. Só que a maioria começa pelo lugar errado.
 
-Antes de pensar em ferramenta, comece por isso: seu processo já é claro mesmo sem nenhuma IA envolvida? Se não é, a IA não vai organizar — ela vai escalar a bagunça que já existe.
+Antes de pensar em ferramenta, comece por isso: seu processo já é claro mesmo sem nenhuma IA envolvida? Se não é, a IA não vai organizar. Ela vai escalar a bagunça que já existe.
 
 Comenta aqui se você já parou pra pensar nisso antes de implementar qualquer automação.
 

@@ -1,4 +1,4 @@
-Tool, skill e MCP parecem sinônimos até você tentar montar um agente de verdade — e essa confusão é uma das causas mais comuns de agente mal configurado.
+Tool, skill e MCP parecem sinônimos até você tentar montar um agente de verdade. E essa confusão é uma das causas mais comuns de agente mal configurado.
 
 Arrasta pro lado pra entender a função exata de cada peça, e como elas se encaixam.
 
