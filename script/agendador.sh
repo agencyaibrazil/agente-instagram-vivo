@@ -14,52 +14,64 @@ if [ "${FORCAR_MODO:-nenhum}" = "carrosseis" ]; then
 fi
 
 HORA_UTC=$(date -u +%H:%M)
-HOJE_UTC=$(date -u +%Y-%m-%d)
-DIA_SEMANA=$(date -u +%u)   # 1=segunda 2=terca 3=quarta 4=quinta 5=sexta 6=sabado 7=domingo
-echo "Hora atual (UTC): $HORA_UTC | Dia da semana (UTC, 1=seg..7=dom): $DIA_SEMANA"
 
-# Apenas UMA publicacao por dia, sempre as 21:30 UTC (18:30 horario de
-# Brasilia), alternando o tipo pelo dia da semana:
+# Determina a "rodada" pendente (a data de referencia do ultimo horario-alvo,
+# 21:30 UTC, que ja passou). Se ainda nao chegamos nas 21:30 UTC de hoje, a
+# rodada pendente ainda e a de ONTEM (pode nao ter sido cumprida ainda).
+# Isso evita ficar preso a "hoje" no sentido do relogio, o que quebraria a
+# logica se um disparo atrasar o suficiente pra cruzar a meia-noite UTC
+# (nosso alvo, 21:30 UTC, fica so 2h30 antes da virada do dia).
+if [[ "$HORA_UTC" < "21:30" ]]; then
+  DATA_RODADA=$(date -u -d "yesterday" +%Y-%m-%d)
+else
+  DATA_RODADA=$(date -u +%Y-%m-%d)
+fi
+DIA_SEMANA_RODADA=$(date -u -d "$DATA_RODADA" +%u)   # 1=segunda...7=domingo
+
+echo "Hora atual (UTC): $HORA_UTC | Rodada pendente: $DATA_RODADA (dia da semana $DIA_SEMANA_RODADA)"
+
+# SEM JANELA DE FECHAMENTO (sem "so ate tal hora"). Motivo: comparando com
+# outro workflow do mesmo projeto (repor-conteudo.yml, cron nativo 1x/dia,
+# sem nenhuma janela) que sempre dispara -- so que atrasado (2h30 a 5h de
+# atraso observados em 4 dias seguidos, nunca falhou de verdade), ficou
+# claro que o problema real nao e o agendador nativo do GitHub ser lento --
+# e QUALQUER corte de horario ("so ate tal hora") que transforma um atraso
+# (inofensivo) numa falha total (perde o dia). Tirando o corte, o agendador
+# so para de tentar quando a publicacao da rodada realmente sair -- do
+# mesmo jeito que o resto dos workflows deste projeto ja funciona.
+#
+# Apenas UMA publicacao por rodada, alternando o tipo pelo dia da semana da
+# rodada (nao o dia do relogio no momento da checagem -- ver acima):
 #   segunda(1) / quarta(3) / sexta(5) -> carrossel
 #   terca(2)   / quinta(4) / sabado(6) -> post
 #   domingo(7) -> nada
 #
-# Janela util: 21:30-23:29 UTC (2h de tolerancia, mesmo motivo de sempre:
-# o cron nativo do GitHub nao ticka de fato a cada 10min, entao uma janela
-# curta corre risco real de nao pegar nenhum tick).
-#
-# Corte de duplicidade: com uma janela de 2h, mais de uma execucao do
-# agendador pode cair dentro da mesma janela (ja aconteceu: duas execucoes
-# na mesma noite). Sem checar, isso publicaria dois itens diferentes da
-# fila no mesmo dia (nao o mesmo arquivo repetido, mas dois itens em vez de
-# um). O corte aqui e so "ja publicou o tipo de hoje? entao nao publica de
-# novo" — ancorado no inicio da janela de hoje (nao numa janela rolante de
-# N horas), a mesma logica que ja corrigiu o bug de duplicidade anterior.
+# Corte de duplicidade: ancorado no inicio da janela DA RODADA (nao do dia
+# do relogio), pra continuar valendo mesmo se a checagem atual ja estiver
+# no dia seguinte (rodada de ontem ainda pendente).
 
-if [[ "$HORA_UTC" > "21:29" && "$HORA_UTC" < "23:30" ]]; then
-  case "$DIA_SEMANA" in
-    1|3|5)
-      JA_PUBLICOU=$(git log --since="${HOJE_UTC}T21:30:00" --grep="Carrossel publicado automaticamente" --oneline)
-      if [ -z "$JA_PUBLICOU" ]; then
-        echo "Dia de carrossel (seg/qua/sex), dentro da janela. Disparando postar-carrosseis.yml..."
-        gh workflow run postar-carrosseis.yml --ref main
-      else
-        echo "Ja publicou o carrossel de hoje. Nada a fazer."
-      fi
-      ;;
-    2|4|6)
-      JA_PUBLICOU=$(git log --since="${HOJE_UTC}T21:30:00" --grep="Post publicado automaticamente" --oneline)
-      if [ -z "$JA_PUBLICOU" ]; then
-        echo "Dia de post (ter/qui/sab), dentro da janela. Disparando postar-posts.yml..."
-        gh workflow run postar-posts.yml --ref main
-      else
-        echo "Ja publicou o post de hoje. Nada a fazer."
-      fi
-      ;;
-    7)
-      echo "Domingo. Sem publicacao programada."
-      ;;
-  esac
-fi
+case "$DIA_SEMANA_RODADA" in
+  1|3|5)
+    JA_PUBLICOU=$(git log --since="${DATA_RODADA}T21:30:00" --grep="Carrossel publicado automaticamente" --oneline)
+    if [ -z "$JA_PUBLICOU" ]; then
+      echo "Rodada de carrossel (seg/qua/sex) ainda pendente. Disparando postar-carrosseis.yml..."
+      gh workflow run postar-carrosseis.yml --ref main
+    else
+      echo "Rodada de carrossel ja cumprida."
+    fi
+    ;;
+  2|4|6)
+    JA_PUBLICOU=$(git log --since="${DATA_RODADA}T21:30:00" --grep="Post publicado automaticamente" --oneline)
+    if [ -z "$JA_PUBLICOU" ]; then
+      echo "Rodada de post (ter/qui/sab) ainda pendente. Disparando postar-posts.yml..."
+      gh workflow run postar-posts.yml --ref main
+    else
+      echo "Rodada de post ja cumprida."
+    fi
+    ;;
+  7)
+    echo "Rodada de domingo: sem publicacao programada."
+    ;;
+esac
 
 echo "Verificacao concluida."
