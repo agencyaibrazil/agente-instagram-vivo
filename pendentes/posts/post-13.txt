@@ -1,9 +1,7 @@
-"Meu agente lê meus documentos" é a frase mais repetida. E uma das menos verificadas. Em quem vende IA pra empresa.
+Dar uma skill ampla e mal definida pro agente é um convite pra ele tentar fazer coisas que não devia. E errar com convicção.
 
-Ler não é a parte difícil. Buscar o pedaço CERTO do documento no momento certo é. Isso se chama RAG, e é onde a maioria das implementações falha silenciosamente: parece que funciona, até alguém perguntar algo específico.
+Skill bem desenhada tem escopo claro: o que ela faz, quando deve ser usada, e o que fica de fora dela por definição.
 
-Teste simples: pergunte pro seu agente algo cuja resposta está escondida num trecho obscuro do seu material. Se ele errar ou inventar, o problema não é o modelo. É a organização por trás.
+Menos skills bem definidas rendem mais do que muitas skills vagas competindo entre si.
 
-Salva esse post e testa no seu agente hoje.
-
-#rag #agentedeia #inteligenciaartificial #iaparaempresas #diagnostico #tecnologia
+#agentedeia #inteligenciaartificial #skills #frameworkdeia #tecnologia #automacaointeligente

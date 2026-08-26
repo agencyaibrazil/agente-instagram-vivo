@@ -1,7 +1,0 @@
-A maioria pula direto pra configurar a ferramenta. E pula exatamente a etapa que decide se o agente vai funcionar ou não.
-
-Arrasta pro lado pra ver o caminho completo, na ordem certa, incluindo o passo que quase todo mundo ignora no início.
-
-Salva esse carrossel. É o roteiro que a gente segue antes de qualquer implementação.
-
-#agentedeia #frameworkdeia #implementacaodeia #inteligenciaartificial #tecnologia #iaparaempresas

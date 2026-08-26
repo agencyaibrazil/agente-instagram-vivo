@@ -1,0 +1,7 @@
+Todo agente, por melhor que seja, um dia vai encontrar uma pergunta que não sabe responder direito. O que ele faz nesse momento é o fallback.
+
+Arrasta pro lado pra ver as opções mais comuns de plano B. E o erro que mais aparece quando esse plano não existe.
+
+Salva esse carrossel pra revisar se o seu agente tem um fallback bem definido.
+
+#agentedeia #inteligenciaartificial #governanca #frameworkdeia #tecnologia #iaparaempresas

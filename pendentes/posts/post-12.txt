@@ -1,9 +1,7 @@
-Testei dezenas de "agentes de IA" que, no fundo, eram um fluxo do n8n com um nome mais bonito.
+Um bom agente não tenta resolver tudo sozinho. Ele sabe reconhecer o momento em que a situação exige um humano.
 
-Não tem nada de errado em automação. O problema é vender fluxo fixo como se fosse decisão inteligente. Automação faz exatamente o que foi desenhada pra fazer. Agente decide o que fazer quando a situação foge do desenho.
+Essa capacidade de escalar não é sinal de fraqueza do agente, é sinal de que ele foi bem projetado, com limites claros.
 
-A pergunta que desmonta o discurso de vendas: "o que acontece quando o cliente pergunta algo que não estava previsto?" Se a resposta é "trava", não é agente.
+Empresa que não define esse gatilho corre o risco do agente insistir numa situação que já devia ter sido passada pra frente.
 
-Comenta aqui: você já caiu nessa confusão?
-
-#agentedeia #automacao #n8n #miteverdade #iaparaempresas #tecnologia
+#agentedeia #inteligenciaartificial #diagnostico #iaparanegocios #tecnologia #frameworkdeia

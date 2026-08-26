@@ -1,9 +1,7 @@
-Um agente tentando fazer tudo sozinho. Pesquisar, decidir e executar. Tende a ser mediano em cada etapa, em vez de bom em alguma.
+Empilhar dado sobre dado não melhora o agente. Melhora só se o dado for correto, atual e relevante pro que está sendo perguntado.
 
-Quando a tarefa tem fases muito diferentes entre si, dividir entre agentes especialistas (com um orquestrador coordenando) costuma render mais do que forçar um generalista a dar conta de tudo.
+Dado desatualizado é particularmente perigoso: o agente responde com a mesma confiança de sempre, só que errado.
 
-Isso não é "mais avançado" por padrão. É mais complexo de manter. Só vale a pena quando o processo já justifica essa complexidade.
+Antes de aumentar volume de dado, vale mais revisar a qualidade do que já está lá.
 
-Comenta: seu processo hoje seria mais bem servido por 1 agente ou por vários trabalhando junto?
-
-#multiagentes #agentedeia #frameworkdeia #inteligenciaartificial #automacaointeligente #tecnologia
+#agentedeia #inteligenciaartificial #miteverdade #iaparanegocios #tecnologia #dados

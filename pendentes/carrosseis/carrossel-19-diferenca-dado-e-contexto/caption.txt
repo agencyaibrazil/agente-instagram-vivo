@@ -1,0 +1,7 @@
+Dado e contexto parecem sinônimos, mas não são. E essa confusão explica muito agente que "tem informação" e ainda assim responde mal.
+
+Arrasta pro lado pra ver a diferença com um exemplo prático.
+
+Salva esse carrossel. Entender essa distinção muda como você organiza a base do seu agente.
+
+#agentedeia #inteligenciaartificial #contexto #frameworkdeia #tecnologia #iaparaempresas
