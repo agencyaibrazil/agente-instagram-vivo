@@ -1,0 +1,7 @@
+Muita empresa acha que o problema do agente de IA é falta de dado. Na prática, o problema quase sempre é dado sem filtro. Jogado pro agente sem hierarquia do que importa de verdade.
+
+Contexto bem feito não é uma pasta cheia de PDF. É a informação certa, organizada, disponível na hora que o agente precisa consultar.
+
+Antes de perguntar "quanto dado ele tem", pergunte "ele sabe qual dado usar em cada situação".
+
+#agentedeia #inteligenciaartificial #iaparanegocios #contexto #automacaointeligente #tecnologia #frameworkdeia

@@ -1,0 +1,9 @@
+IA generativa não "sabe" fatos do jeito que um banco de dados sabe. Ela prevê a resposta mais provável com base em padrão de linguagem.
+
+Isso significa que ela pode errar data, número, nome. Com a mesma confiança de quando acerta.
+
+Um agente bem projetado lida com isso de dois jeitos: cita a fonte real quando existe, ou admite abertamente que não tem certeza.
+
+Confiança sem verificação é o oposto do que um agente de IA deveria entregar.
+
+#agentedeia #inteligenciaartificial #iagenerativa #miteverdade #tecnologia #iaparanegocios

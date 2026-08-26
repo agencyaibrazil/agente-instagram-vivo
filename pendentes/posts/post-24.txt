@@ -1,0 +1,9 @@
+Todo agente vai, eventualmente, receber uma pergunta que não sabe responder. A questão não é se isso vai acontecer. É o que ele faz nesse momento.
+
+Agente mal projetado inventa uma resposta plausível. Agente bem projetado admite o limite, pede mais informação, ou encaminha pra um humano.
+
+Esse comportamento não acontece sozinho. Precisa ser desenhado de propósito, como parte da arquitetura, não como um detalhe.
+
+Comenta aí: seu agente já "inventou" alguma resposta que não devia?
+
+#agentedeia #inteligenciaartificial #iaparanegocios #diagnostico #automacaointeligente #tecnologia

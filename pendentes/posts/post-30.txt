@@ -1,0 +1,7 @@
+No dia do lançamento, o agente costuma estar afinado, testado, com contexto atualizado. O problema aparece meses depois.
+
+Produto muda, política muda, o mercado muda. E o agente, se ninguém mexer nele, continua respondendo com base no que era verdade no dia em que foi configurado.
+
+Evolução contínua não é luxo, é manutenção básica de qualquer sistema que interage direto com o seu cliente.
+
+#agentedeia #inteligenciaartificial #evolucaocontinua #iaparanegocios #tecnologia #frameworkdeia

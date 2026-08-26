@@ -1,0 +1,7 @@
+Um agente sem tools é só um chat bonito. O que transforma conversa em resultado é a capacidade de agir. Consultar um sistema, agendar um horário, disparar uma mensagem.
+
+Cada tool é uma ponte entre o que o agente entende e o que ele consegue efetivamente fazer no seu negócio.
+
+Quanto mais claras e bem definidas as tools, menos o agente precisa "chutar" o que fazer com a informação que recebeu.
+
+#agentedeia #inteligenciaartificial #tools #automacaointeligente #frameworkdeia #tecnologia

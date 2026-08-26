@@ -1,0 +1,9 @@
+Contexto é o pilar mais invisível. E um dos que mais derruba a qualidade de um agente de IA quando é ignorado.
+
+Sem contexto, o agente responde igual pra qualquer empresa do mesmo setor. Com contexto bem montado, ele responde como se conhecesse o seu negócio de dentro.
+
+Política de troca, tom de voz, produto que a empresa não vende. Tudo isso é contexto que precisa estar acessível antes da primeira conversa real.
+
+Salva esse post pra revisar o contexto do seu agente antes de colocar ele pra valer.
+
+#agentedeia #inteligenciaartificial #contexto #iaparaempresas #frameworkdeia #tecnologia

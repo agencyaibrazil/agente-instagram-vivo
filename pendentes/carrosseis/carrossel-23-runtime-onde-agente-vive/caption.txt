@@ -1,0 +1,7 @@
+Escolher onde o agente vai operar é tão estratégico quanto escolher o que ele vai saber responder.
+
+Arrasta pro lado pra ver as opções mais comuns de runtime e o que cada uma entrega de diferente.
+
+A pergunta certa não é "qual runtime é melhor". É "onde o meu cliente já está".
+
+#agentedeia #inteligenciaartificial #runtime #frameworkdeia #tecnologia #iaparaempresas
