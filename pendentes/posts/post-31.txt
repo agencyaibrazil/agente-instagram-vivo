@@ -1,0 +1,7 @@
+Memória de longo prazo é o que separa um agente que trata cada conversa como se fosse a primeira de um agente que lembra o histórico do cliente.
+
+É essa memória que permite retomar um assunto de semanas atrás sem o cliente precisar se apresentar de novo.
+
+Sem ela, mesmo um agente tecnicamente competente soa impessoal. E isso pesa direto na experiência.
+
+#agentedeia #inteligenciaartificial #memoria #frameworkdeia #tecnologia #iaparaempresas

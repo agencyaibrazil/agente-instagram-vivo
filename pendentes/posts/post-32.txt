@@ -1,0 +1,7 @@
+Segurança de IA costuma soar como desconfiança da tecnologia. Mas é exatamente o contrário.
+
+É sobre definir de forma explícita o que o agente pode e não pode fazer, antes dele precisar improvisar um limite numa situação real.
+
+Empresa que trata segurança como etapa final, e não como parte do desenho, geralmente descobre o problema tarde demais.
+
+#agentedeia #inteligenciaartificial #seguranca #iaparaempresas #tecnologia #frameworkdeia

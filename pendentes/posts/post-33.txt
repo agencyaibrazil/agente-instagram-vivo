@@ -1,0 +1,7 @@
+A estrutura de um bom agente de IA. Os pilares, a lógica. Pode até ser parecida entre empresas diferentes.
+
+Mas o que faz o agente funcionar de verdade é o que muda empresa a empresa: o contexto específico, o tom de voz da marca, os limites do que pode ser decidido sozinho.
+
+Copiar a estrutura de outro sem adaptar esses três pontos é receita pra um agente genérico.
+
+#agentedeia #inteligenciaartificial #miteverdade #iaparaempresas #tecnologia #frameworkdeia

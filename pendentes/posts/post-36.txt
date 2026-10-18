@@ -1,0 +1,7 @@
+Latência é um detalhe técnico que vira experiência do cliente muito rápido: é o tempo que o agente leva pra responder depois da pergunta.
+
+Uma resposta perfeita que demora demais perde valor. O cliente já foi buscar em outro lugar.
+
+Medir latência com a mesma atenção que se mede qualidade de resposta é o que separa um bom agente de um agente só "tecnicamente correto".
+
+#agentedeia #inteligenciaartificial #runtime #tecnologia #iaparanegocios #frameworkdeia

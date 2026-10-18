@@ -1,0 +1,7 @@
+É tentador pular direto pra colocar o agente no ar e ajustar o contexto "depois, na prática". Mas isso costuma custar mais caro do que parece.
+
+Dado ruim já em produção significa resposta errada indo pro cliente, confiança sendo perdida em tempo real.
+
+O tempo investido em organizar o contexto antes de lançar é sempre menor do que o tempo gasto corrigindo depois.
+
+#agentedeia #inteligenciaartificial #contexto #iaparanegocios #tecnologia #frameworkdeia

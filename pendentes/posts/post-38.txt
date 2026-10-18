@@ -1,0 +1,7 @@
+Qualquer agente responde bem a pergunta óbvia, dentro do script esperado. O teste de verdade é o que acontece quando a pergunta foge disso.
+
+Agente mal desenhado trava, repete a mesma resposta genérica, ou pior: inventa algo pra parecer que sabe.
+
+Agente bem desenhado reconhece que saiu do escopo e sabe o que fazer a partir daí. Encaminhar, admitir, ou pedir mais contexto.
+
+#agentedeia #inteligenciaartificial #diagnostico #iaparanegocios #tecnologia #frameworkdeia
