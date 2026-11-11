@@ -1,0 +1,7 @@
+Fallback é o plano B de qualquer agente bem projetado: o que fazer quando a resposta certa não está clara.
+
+Pode ser encaminhar pra um humano, admitir abertamente o limite, ou simplesmente pedir mais informação antes de responder.
+
+O erro mais comum é não ter fallback nenhum. E aí o agente tenta responder de qualquer jeito, com a mesma confiança de sempre.
+
+#agentedeia #inteligenciaartificial #governanca #frameworkdeia #tecnologia #iaparaempresas
